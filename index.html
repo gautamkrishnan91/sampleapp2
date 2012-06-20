@@ -1,71 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-		<title>Training App</title>
-		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
-		
-		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/DOMStorageAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/WebkitSQLiteAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/Lawnchair.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" charset="utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile Docs - Gallery of Form Controls</title>
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.1.0.css" />
 
-      // Wait for Cordova to load
-      //
-      document.addEventListener("deviceready", onDeviceReady, false);
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.1.0.js"></script>
+	<script type="text/javascript">
+		function submitclicked(){
+			var check = document.getElementById('name').value;
+			var passcheck = document.getElementById('pass').value;
+			if ((check=="admin")&&(passcheck=="mypass"))
+			{
+				window.location.href="dialog.html";
+			}
+		}
+		function cancelclicked() {
+			alert("Cancelled!");
+		}
+	</script>
+	<style type="text/css">
+		.sampleheader {
+			width: 100%;
+			text-align: center;
+			margin: 0 auto;
+			height: 20%;
+			font-size: 40px; 
+			font-family: "Helvetica";
+			background: #000000;
+			color: #FFFFFF;
+		}
+		.footer-docs {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
 
-      // Cordova is ready
-      //
-      function onDeviceReady() {
-      // Empty
-      }
+	<div data-role="page" class="type-interior">
 
-      // Show a custom alert
-      //
-      function showAlert() {
-      navigator.notification.alert(
-      'You are the winner!',  // message
-      'Game Over',            // title
-      'Done'                  // buttonName
-      );
-      }
+	<div data-role="header" data-theme="b">
+		<h1>Welcome to Sample Application</h1>
+	</div>
+	<div data-role="content">
+		<div class="content-primary">
 
-      // Beep three times
-      //
-      function playBeep() {
-      navigator.notification.beep(3);
-      }
+		<form action="#">
+			<div data-role="fieldcontain">
+	         <label for="name">Username:</label>
+	         <input type="text" id="name" />
+			</div>
 
-      // Vibrate for 2 seconds
-      //
-      function vibrate() {
-      navigator.notification.vibrate(2000);
-      }
+			<div data-role="fieldcontain">
+	         <label for="name">Password:</label>
+	         <input type="password" name="name" id="pass"  />
+			</div>
+		<div class="ui-body ui-body-b">
+		<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><button type="submit" onclick="cancelclicked()" data-theme="d">Cancel</button></div>
+				<div class="ui-block-b"><button type="submit" onclick="submitclicked()" data-theme="a">Login</button></div>
+	    </fieldset>
+		</div>
+	</form>
+	</div><!--/content-primary -->		
+	
+</div><!-- /content -->
 
-    </script>
-		
-	</head>
-	<body>
- 		<p>
-      <a href="#" onclick="showAlert(); return false;">Show Alert</a>
-    </p>
-    <p>
-      <a href="#" onclick="playBeep(); return false;">Play Beep</a>
-    </p>
-    <p>
-      <a href="#" onclick="vibrate(); return false;">Vibrate</a>
-    </p>
-	</body>
+<div data-role="footer" class="footer-docs" data-theme="c">
+		<p>Developed by Gautam Krishnan</p>
+</div>
+	
+</div><!-- /page -->
+
+</body>
 </html>
